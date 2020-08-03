@@ -20,10 +20,22 @@ const mergeArray = (arr1, arr2) => {
     array.push(arr1[i]);
     i++;
   }
-  while(j < arr2.lenght) {
+  while(j < arr2.length) {
     array.push(arr2[j]) 
     j++;
   }
 
   return array;
+}
+
+const mergeSort = (arr) => {
+  if(arr.length <= 1) {
+    return arr;
+  }
+  let firstHalf = mergeSort(arr.slice(0, Math.floor(arr.length / 2)));
+  console.log('here is firstHalf: ' + firstHalf);
+  let secondHalf = mergeSort(arr.slice(Math.floor(arr.length / 2)));
+  console.log('here is secondHalf: ' + secondHalf);
+
+  return mergeArray(firstHalf, secondHalf); 
 }
